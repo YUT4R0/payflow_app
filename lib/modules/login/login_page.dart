@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payflow_app/modules/login/login_controller.dart';
 import 'package:payflow_app/shared/themes/colors.dart';
 import 'package:payflow_app/shared/themes/fonts.dart';
 import 'package:payflow_app/shared/themes/images.dart';
@@ -12,6 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final controller = LoginController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -54,7 +56,9 @@ class _LoginPageState extends State<LoginPage> {
                       padding:
                           const EdgeInsets.only(left: 40, right: 40, top: 40),
                       child: SocialLoginButton(
-                        onTap: () => print("on tap fun working"),
+                        onTap: () {
+                          controller.googleSignIn(context);
+                        },
                       ),
                     )
                   ],
